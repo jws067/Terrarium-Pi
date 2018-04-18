@@ -1,0 +1,18 @@
+//To do - importing
+import necessary functions(time, etc)
+
+//To do - Main Programs
+program pump to dispense water on time
+program pi to to measure time to activate pump
+program pi to utilize breadboard for led indicators
+program pi to activate pump for the needed time
+
+//To do - GUI
+work on front end of GUI
+program GUI to interact with main programs properly
+program GUI to utilize touch input
+
+//To do - Testing
+Test main functions
+Test pump functionality
+Test GUI
