@@ -22,12 +22,12 @@ class Volume (object):
 def timeRun(vol, unit):
     if (unit == "liter"):
         cups = vol / .236588
-        seconds = round(cups / .125)
+        seconds = (cups / .125)
     if (unit == "cup"):
-        seconds = round(vol / .125)
+        seconds = (vol / .125)
     if (unit == "milliliter"):
         cups = vol / (.236588 * 1000)
-        seconds = round(cups / .125)
+        seconds = (cups / .125)
     if (unit == "fluidOz"):
         seconds = vol    
     return seconds
