@@ -3,7 +3,7 @@ from time import sleep
 class Pump():
     def __init__(self, time):
         self.time = time
-        self.pump = 17
+        self.pump = 27
         Initialize(self.pump)
 
     @property
