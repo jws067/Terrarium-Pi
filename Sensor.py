@@ -6,5 +6,4 @@ GPIO.setup(sensor, GPIO.IN)
 
 class Sensor(object):
     def MoistChk(self):
-        sen = 1#not GPIO.input(sensor)
-        return sen
+        return GPIO.input(sensor)
