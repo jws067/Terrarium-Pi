@@ -5,7 +5,6 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(sensor, GPIO.IN)
 
 class Sensor(object):
-    #MoistChk returns True if there is moisture in soil
     def MoistChk(self):
-        #not GPIO.input(sensor) is used because sensor module naturally sends a True signal when it doesn't detect moisture
-        return not GPIO.input(sensor)
+        sen = 1#not GPIO.input(sensor)
+        return sen
