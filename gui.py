@@ -75,7 +75,6 @@ class Application(Frame):
     #Stop Timer and Start Timer
     def stopIt(self):
         """Starts and stops the timer"""
-        print "Toggle..."
         if (self.ThreadOnline):
             #turn off thread
             self.stopFlag.set()
