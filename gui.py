@@ -77,7 +77,7 @@ class Application(Frame):
         """Starts and stops the timer"""
         print "Toggle..."
         if (self.ThreadOnline):
-            print "thread is going offline"
+            #turn off thread
             self.stopFlag.set()
             self.ThreadOnline = False
             self.x=0
@@ -87,20 +87,16 @@ class Application(Frame):
         elif (not self.ThreadOnline):
             #set self.vol and self.unit
             self.Vol, self.Unit = self.info()
+            #turn on thread and progress bar
             self.time = Volume(self.Vol,self.Unit).time
-            print "time is {} seconds".format(self.time)
-            print "thread is coming back online"
             self.CreateThread()
-            print "1"
             self.progress.start(self.Mminutes)
-            print "2"
             self.Disable()
 
     #returns user input
     def info(self):
         """returns input from user"""
         flt = float(self.ones.get()) + (float(self.tenths.get())/10)
-        print flt
         return flt, self.drop_down.get()
 
     #disable variable editing
@@ -132,7 +128,6 @@ class Application(Frame):
     #checks soil
     def Check(self):
         sen = self.Sense.MoistChk()
-        print sen
         if(sen == 1):
             pump = Pump(app.time)
             pump.Run()
@@ -149,7 +144,6 @@ class MyThread(Thread):
 
     def run(self):
         while not self.stopped.wait(app.Sminutes):
-            print("my thread")
             self.x +=1
             #hour counter
             if(self.x>=60 ):
@@ -157,7 +151,6 @@ class MyThread(Thread):
                 self.hours += 1
                 #pump activator
                 if(app.Sminutes == 1 and self.hours >=1):
-                    print "pumping..."
                     self.hours = 0
                     app.progress.stop()
 
@@ -165,7 +158,6 @@ class MyThread(Thread):
                     app.Check()
                     app.progress.start(app.Mminutes)
                 elif(app.Sminutes == 60 and self.hours >=24):
-                    print "pumping..."
                     self.hours = 0
                     app.progress.stop()
                 
